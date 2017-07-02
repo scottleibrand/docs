@@ -7,13 +7,21 @@ Mac users: [follow these instructions to open Terminal and plug in your rig](mac
 
 ### Log in to your rig
 
-If you're not already, make sure you're logged into your rig via root. You should see root@jubilinux on the command prompt.
+First, copy and paste: `sudo screen /dev/tty.usbserial-* 115200`, then hit enter.
+
+You’ll most likely be asked for your **computer password**.  Enter it.  A blank screen will likely come up, then press enter to wake things up to show an Edison login prompt.  Login with username “root” (no quotes) and no password will be needed. 
+
+If you have a problem getting to the Edison login prompt, and possibly get a warning like "can't find a PTY", close that terminal window.  Then unplug the usb cables from your computer (not from the Edison...leave those ones as is) and swap the USB ports they were plugged in.  Open a new terminal window, use the `sudo screen /dev/tty.usbserial-* 115200` command again.  Usually just changing the USB ports for the cables will fix that "can't find a PTY" error.
+
+(**Note**: In the future, you will log into your rig by typing `ssh root@edison.local`, when you do not have the rig plugged into your computer. Also note that if you change your hostname, it will be `ssh root@whatyounamedit.local`)
+
+You should now see the command prompt change to be root.
 
 ### Copy and paste to run the wifi and oref0-setup scripts
 
-Go to this webpage in a separate page: https://github.com/openaps/docs/blob/dev/scripts/openaps-bootstrap.sh.
+Go to [this webpage](https://raw.githubusercontent.com/openaps/docs/dev/scripts/openaps-bootstrap.sh) in a separate tab/window.
 
-Copy all of those lines; go back to Terminal and paste into the command line. Then, hit enter.
+Copy all of those lines; go back to Terminal/PuTTY and paste into the command line. Then, hit enter.
 
 The script will do some initial installing, check the wifi, and ask you to hit enter to proceed.
 
